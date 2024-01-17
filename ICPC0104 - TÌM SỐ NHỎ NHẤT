@@ -1,0 +1,26 @@
+from collections import deque
+def main():
+    test = int(input())
+    for _ in range(test):
+        dq = deque()
+        x = ""
+        s = input()
+        #print(s)
+        s=s+"a"
+        for i in s:
+            if i.isdigit():
+                x = x + i
+            else:
+                if len(dq) == 0 and x != "":
+                    dq.append(int(x))
+                    x = ""
+                elif len(dq) == 1 and x != "":
+                    a = dq.popleft()
+                    if a > int(x):
+                        dq.append(int(x))
+                    else :
+                        dq.append(a)
+                    x=""
+        print(dq.popleft())
+if __name__ == '__main__':
+    main()
