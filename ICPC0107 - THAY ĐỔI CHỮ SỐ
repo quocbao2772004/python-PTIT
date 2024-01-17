@@ -1,0 +1,39 @@
+import math 
+from math import log2
+from collections import deque
+def return_to_min_value(x,p,q):
+    mi=str(min(p,q))
+    ma=str(max(p,q))
+    res=""
+    for i in range(0, len(x)):
+        if x[i] == ma:
+            res = res + mi
+        else :
+            res = res + x[i]
+    return int(res)
+def return_to_max_value(x,p,q):
+    mi=str(min(p,q))
+    ma=str(max(p,q))
+    res=""
+    for i in range(0, len(x)):
+        if x[i] == mi:
+            res = res + ma
+        else :
+            res = res + x[i]
+    return int(res)
+def main():
+    test=int(input())
+    for _ in range(test):
+        p,q=map(int,input().split())
+        x=input().split()
+        if len(x) == 2:
+            x1=x[0]
+            x2=x[1]
+        else:
+            x1=x[0]
+            x2=input()
+        print(return_to_min_value(x1,p,q)+return_to_min_value(x2,p,q),end=' ')
+        print(return_to_max_value(x1,p,q)+return_to_max_value(x2,p,q))
+    
+if __name__ == "__main__":
+    main()   
