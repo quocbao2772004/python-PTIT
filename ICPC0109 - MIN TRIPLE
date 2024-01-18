@@ -1,0 +1,38 @@
+import sys
+import math
+
+# fi =open('input.txt','r')
+# fo=open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+import heapq
+import re
+def main():
+
+    test = int(input())
+    for _ in range(test) :
+        n = int(input())
+        arr=' '+input().replace(' ','  ')+' '
+        # arr = ' ' + input().replace(' ', '  ') + ' '
+        a=[]
+        i=-8
+        res=0
+        while i<9 and len(a)<4:
+            s = '\d' * abs(i)+' '
+            if i<0:
+                s='-'+s
+            elif i>0:
+                s=' '+s
+            else:
+                i+=1
+                continue
+            a += [int(x) for x in re.findall(s, arr)]
+            i+=1
+        for i in heapq.nsmallest(3,a):
+            res+=i
+        print(res)
+
+if __name__=='__main__':
+    main()
+    # fi.close()
+    # fo.close()
