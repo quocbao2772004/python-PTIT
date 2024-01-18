@@ -1,0 +1,33 @@
+import sys
+# fi = open('input.txt', 'r')
+# fo = open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        a=list(map(int,input().split()))
+        c=[]
+        a.sort()
+        res=0
+        for i in range(0,n-2):
+            l=i+1
+            r=n-1
+            x=a[i]
+            while l<r:
+                if a[l]+a[r]+x==0:
+                    res+=1
+                    l+=1
+                elif a[l]+a[r]+x>0:
+                    r-=1
+                else:
+                    l+=1
+        print(res)
+if __name__ == '__main__':
+    main()
+    # fo.close()
+    # fi.close()
+
+
