@@ -1,0 +1,48 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt
+def mapping(day,month):
+    if month==1:
+        if 1<=day<=19:
+            print("Ma Ket")
+        else:
+            print("Bao Binh")
+    elif month==2:
+        if 1<=day<=18:
+            print("Bao Binh")
+        else:
+            print("Song Ngu")
+    elif month==3:
+        if 1<=day<=20:
+            print("Song Ngu")
+        else:
+            print("Bach Duong")
+    elif month==4:
+        print("Bach Duong") if 1<=day<=19 else print("Kim Nguu")
+    elif month==5:
+        print("Kim Nguu") if 1<=day<=20 else print("Song Tu")
+    elif month==6:
+        print("Song Tu") if 1<=day<=20 else print("Cu Giai")
+    elif month==7:
+        print("Cu Giai") if 1<=day<=22 else print("Su Tu")
+    elif month==8:
+        print("Su Tu") if 1<=day<=22 else print("Xu Nu")
+    elif month==9:
+        print("Xu Nu") if 1<=day<=22 else print("Thien Binh")
+    elif month==10:
+        print("Thien Binh") if 1<=day<=22 else print("Thien Yet")
+    elif month==11:
+        print("Thien Yet") if 1<=day<=22 else print("Nhan Ma")
+    else:
+        print("Nhan Ma") if 1<=day<=21 else print("Ma Ket")
+def main():
+    test=int(input())
+
+    for _ in range(test):
+        day, month=map(int,(input().split()))
+        mapping(day,month)
+
+if __name__=='__main__':
+    main()
