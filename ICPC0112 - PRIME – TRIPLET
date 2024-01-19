@@ -1,0 +1,27 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+nop=int(1e6+1)
+nt=[1 for i in range(0, nop)]
+prime=[]
+def sang_nt():
+    nt[0]=nt[1]=0
+    for i in range(1000):
+        if nt[i]:
+           prime.append(i)
+           for j in range(i*i,nop,i):
+               nt[j]=0
+def main():
+    test=int(input())
+    sang_nt()
+    for _ in range(test):
+        c=0
+        n=int(input())
+        for i in range(n-5):
+            if nt[i] and nt[i+6]:
+                if nt[i+2] or nt[i+4]:
+                    c+=1
+
+        print(c)
+if __name__=='__main__':
+    main()
