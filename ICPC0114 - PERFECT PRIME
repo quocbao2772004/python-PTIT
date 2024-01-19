@@ -1,0 +1,40 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+def dao(n):
+    s=str(n)
+    s=s[::-1]
+    return int(s)
+def check_digit(n):
+    while n>0:
+        k=n%10
+        if k!= 2 and k!= 3 and k!=5 and k!=7:
+            return 0
+        n//=10
+    return 1
+def check_sum(n):
+    sum=0
+    while n>0:
+        sum=sum+(n%10)
+        n//=10
+    return is_prime(sum)
+def main():
+    test=int(input())
+
+    for _ in range(test):
+        n=int(input())
+        if is_prime(n) and is_prime(dao(n)) and check_sum(n) and check_digit(n):
+            print("Yes")
+        else:
+            print("No")
+if __name__=='__main__':
+    main()
