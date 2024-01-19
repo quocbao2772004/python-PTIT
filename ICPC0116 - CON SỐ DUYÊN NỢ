@@ -1,0 +1,17 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt
+
+def main():
+    test=int(input())
+
+    for _ in range(test):
+        s=input()
+        if s[0]==s[-1]:
+            print("YES")
+        else:
+            print("NO")
+if __name__=='__main__':
+    main()
