@@ -1,0 +1,21 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,d=map(int,(input().split()))
+        a=list(map(int,input().split()))
+        d=d%n
+        c=0
+        for i in a:
+            c+=1
+            if c>d:
+                print(i,end=' ')
+        for i in range(0,d):
+            print(a[i],end=' ')
+        print()
+
+if __name__=='__main__':
+    main()
+    # fi.close()
