@@ -1,0 +1,26 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt
+#12345678
+def solve(n):
+    c=1
+    b=str(n)
+    while c<len(b):
+        z=10**c
+        if n%z >= 5*(z/10):
+            n+=(z-n%z)
+        else:
+            n-=(n%z)
+        c+=1
+    print(n)
+
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        solve(n)
+if __name__=='__main__':
+    main()
