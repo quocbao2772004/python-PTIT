@@ -1,0 +1,17 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt
+def main():
+    test=int(input())
+    mp=[]
+    for _ in range(test):
+        s=input()
+        if s not in mp:
+          mp.append(s)
+    print(len(mp))
+
+
+if __name__=='__main__':
+    main()
