@@ -1,0 +1,33 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def check_even_digit(s):
+    for i in range(0,len(s)):
+        if int(s[i])%2 == 1:
+            return 0
+    return 1
+lst=[]
+def listed():
+    s=2
+    while s<=888:
+        if check_even_digit(str(s)):
+            x=str(s)
+            lst.append(int(x+x[::-1]))
+        s+=2
+
+def main():
+    test=int(input())
+    listed()
+    for _ in range(test):
+        n=int(input())
+        for i in lst:
+            if i<n :
+                print(i,end=' ')
+            else:
+                break
+        print()
+if __name__=='__main__':
+    main()
