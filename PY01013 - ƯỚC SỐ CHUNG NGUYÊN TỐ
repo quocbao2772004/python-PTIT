@@ -1,0 +1,24 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log,gcd,lcm,floor,ceil
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+def main():
+    test=int(input())
+    for _ in range(test):
+        a,b=map(int,input().split())
+        c=gcd(a,b)
+        sum=0
+        while c>0:
+            sum+=(c%10)
+            c//=10
+        print("YES") if is_prime(sum) else print("NO")
+if __name__=='__main__':
+    main()
