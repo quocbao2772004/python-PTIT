@@ -1,0 +1,18 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=input()
+        ok=1
+        for i in n:
+            if i !='4' and i!='7':
+                ok=0
+                break
+        print("YES") if ok==1 else print("NO")
+if __name__=='__main__':
+    main()
