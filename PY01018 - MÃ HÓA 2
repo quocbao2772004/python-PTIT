@@ -1,0 +1,20 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+p="ABCDEFGHIJKLMNOPQRSTUVWXYZ_."
+def main():
+    while 1:
+        s=input().split()
+        if s[0]=='0' and len(s)==1:
+            break
+        k=int(s[0])
+        x=s[1]
+        ans=""
+        for i in range(0,len(x)):
+            c=p.find(x[i])
+            ans=p[(c+k)%28]+ans
+        print(ans)
+if __name__=='__main__':
+    main()
