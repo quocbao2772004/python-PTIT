@@ -1,0 +1,19 @@
+import sys
+fi=open('input.txt','r')
+sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    s=input()
+    count_lower=count_upper=0
+
+    for i in s:
+        if ord(i)>=ord('a') and ord(i)<=ord('z'):
+            count_lower+=1
+        else:
+            count_upper+=1
+    # print(count_lower,count_upper)
+    print(s.lower())if count_lower>=count_upper else print(s.upper())
+if __name__=='__main__':
+    main()
