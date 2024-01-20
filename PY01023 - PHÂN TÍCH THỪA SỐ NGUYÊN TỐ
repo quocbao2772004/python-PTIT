@@ -1,0 +1,29 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log,gcd,lcm,floor,ceil
+def prime_factors(n):
+    nt=2
+    while nt <= sqrt(n):
+        if n%nt==0:
+            c=0
+            print(' * ',end='')
+            while n%nt==0:
+                c+=1
+                n//=nt
+            print(str(nt)+'^'+str(c),end='')
+        nt+=1
+    if n>1:
+        print(' * ',end='')
+        print(str(n)+'^'+str(1),end='')
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        print(1,end='')
+        prime_factors(n)
+        print()
+if __name__=='__main__':
+    main()
