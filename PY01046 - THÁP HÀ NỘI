@@ -1,0 +1,17 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def solve(n,a,b,c):
+    if n==1:
+        print(a + " -> " + c)
+    else:
+        solve(n-1,a,c,b)
+        solve(1,a,b,c)
+        solve(n-1,b,a,c)
+def main():
+    n=int(input())
+    solve(n,"A","B","C")
+if __name__=='__main__':
+    main()
