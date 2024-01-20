@@ -1,0 +1,18 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,x,m=map(float,(input().split()))
+        x/=100
+        ans=log(m/n, 1+x)
+        if ans==int(ans):
+            print(ans)
+        else:
+            print(int(ans)+1)
+if __name__=='__main__':
+    main()
