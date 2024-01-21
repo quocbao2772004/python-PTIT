@@ -1,0 +1,20 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    n,k=map(int,input().split())
+    begin=10**(k-1)
+    end=10**k
+    c=0
+    for i in range(begin,end):
+        if gcd(i,n)==1:
+            c+=1
+            print(i,end=' ')
+            if c==10:
+                c=0
+                print()
+if __name__=='__main__':
+    main()
