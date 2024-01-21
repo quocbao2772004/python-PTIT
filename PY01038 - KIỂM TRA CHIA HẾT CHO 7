@@ -1,0 +1,17 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        c=0
+        n=int(input())
+        while n%7!=0 and c<1000:
+            c+=1
+            n=n+int(str(n)[::-1])
+        print(n)
+if __name__=='__main__':
+    main()
