@@ -1,6 +1,6 @@
-import sys
-fi=open('input.txt','r')
-sys.stdin=fi
+#import sys
+#fi=open('input.txt','r')
+#sys.stdin=fi
 import math
 from math import sqrt,gcd,log2,log
 
