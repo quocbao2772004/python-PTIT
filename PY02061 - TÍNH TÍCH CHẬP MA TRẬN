@@ -1,0 +1,47 @@
+import sys
+fi=open('input.txt','r')
+sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def convolution(matrix, kernel):
+    rows_matrix, cols_matrix = len(matrix), len(matrix[0])
+    rows_kernel, cols_kernel = len(kernel), len(kernel[0])
+    rows_output, cols_output = rows_matrix-rows_kernel+1, cols_matrix-cols_kernel+1
+    output_matrix=[[0 for i in range(cols_output)] for j in range(rows_output)]
+    for i in range(rows_output):
+        for j in range(cols_output):
+            for x in range(rows_kernel):
+                for y in range(cols_kernel):
+                    output_matrix[i][j]+=matrix[i+x][j+y]*kernel[x][y]
+    return output_matrix
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,m=map(int,input().split())
+        matrix=[[0 for _ in range(m)] for _ in range(n)]
+        for i in range(n):
+            s=input().split()
+            for j in range(m):
+                matrix[i][j]=int(s[j])
+        kernel=[[0 for _ in range(3)] for _ in range(3)]
+        for i in range(3):
+            s=input().split()
+            for j in range(3):
+                kernel[i][j]=int(s[j])
+        rows=n-2
+        cols=m-2
+        # new_matrix=[[0 for _ in range(cols)] for _ in range(rows)]
+        # for i in range(rows):
+        #     for j in range(cols):
+        #         for x in range(3):
+        #             for y in range(3):
+        #                 new_matrix[i][j]+=a[i+x][j+y]*b[x][y]
+        new_matrix=convolution(matrix,kernel)
+        sum=0
+        for i in range(rows):
+            for j in range(cols):
+                sum+=new_matrix[i][j]
+        print(sum)
+
+if __name__=='__main__':
+    main()
