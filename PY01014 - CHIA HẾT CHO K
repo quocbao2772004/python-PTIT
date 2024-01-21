@@ -1,0 +1,19 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    a,k,n=map(int,input().split())
+    c=0
+    r=a%k
+    b=k-r
+    while b<=n-a:
+        c=1
+        print(b,end=' ')
+        b=b+k
+    if c==0:
+        print(-1)
+if __name__=='__main__':
+    main()
