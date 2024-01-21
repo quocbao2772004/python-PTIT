@@ -1,0 +1,26 @@
+import sys
+fi=open('input.txt','r')
+sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    n=int(input())
+    a=[[0 for _ in range(n)] for _ in range(n)]
+    for i in range(n):
+        s=input().split()
+        for j in range(0,len(s)):
+            a[i][j]=int(s[j])
+    k=int(input())
+    sum_above=0
+    sum_below=0
+    for i in range(n):
+        for j in range(n):
+            if i<j:
+                sum_above+=a[i][j]
+            elif i>j:
+                sum_below+=a[i][j]
+    print("YES")if abs(sum_above-sum_below)<=k else print("NO")
+    print(abs(sum_above-sum_below))
+if __name__=='__main__':
+    main()
