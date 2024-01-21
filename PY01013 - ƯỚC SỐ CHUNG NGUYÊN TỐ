@@ -2,7 +2,7 @@
 # fi=open('input.txt','r')
 # sys.stdin=fi
 import math
-from math import sqrt,gcd,log2,log,gcd,lcm,floor,ceil
+from math import sqrt,gcd,log2,log,lcm,floor,ceil
 def is_prime(n):
     if n<2:
         return 0
