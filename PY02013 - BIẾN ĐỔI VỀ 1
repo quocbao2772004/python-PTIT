@@ -1,0 +1,21 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    while 1:
+        n=int(input())
+        if n==0:
+            break
+        c=1
+        while n!=1:
+            if n%2==0:
+                n//=2
+            else:
+                n=n*3+1
+            c+=1
+        print(c)
+if __name__=='__main__':
+    main()
