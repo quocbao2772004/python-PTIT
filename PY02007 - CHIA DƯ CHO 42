@@ -1,0 +1,25 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    c=res=0
+    a=[]
+    d=[0]*42
+    while 1:
+        s=input().split()
+        # print(s)
+        c+=len(s)
+        for i in range(len(s)):
+            a.append(int(s[i])%42)
+        if c==10:
+            break
+    for i in a:
+        if d[i]==0:
+            res+=1
+            d[i]+=1
+    print(res)
+if __name__=='__main__':
+    main()
