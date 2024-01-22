@@ -1,0 +1,25 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+is_prime=[1]*100000
+save_primes=[]
+def prime():
+    is_prime[0]=is_prime[1]=0
+    for i in range(2,10001):
+        if is_prime[i]:
+            save_primes.append(i)
+            for j in range(i*i,100000,i):
+                is_prime[j]=0
+    
+def main():
+    n,x=map(int,input().split())
+    prime()
+    print(x,end=' ')
+    for i in range (0,n):
+        x+=save_primes[i]
+        print(x,end=" ")
+
+if __name__=='__main__':
+    main()
