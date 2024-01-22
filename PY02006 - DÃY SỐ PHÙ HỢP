@@ -1,0 +1,22 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        ok=1
+        n=int(input())
+        a=list(map(int,input().split()))
+        b=list(map(int,input().split()))
+        a.sort()
+        b.sort()
+        for i in range(0,n):
+            if a[i]>b[i]:
+                ok=0
+                break
+        print("YES") if ok==1 else print("NO")
+if __name__=='__main__':
+    main()
