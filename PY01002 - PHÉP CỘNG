@@ -1,0 +1,14 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+
+
+def main():
+    a,b,c,d,e=input().split()
+    if int(a)+int(c)==int(e):
+        print("YES")
+    else:
+        print("NO")
+
+if __name__=='__main__':
+    main()
