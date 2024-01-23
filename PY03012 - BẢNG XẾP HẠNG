@@ -1,0 +1,39 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import functools
+import math
+from math import sqrt,gcd,log2,log
+class student:
+    def __init__(self, name, score, number_of_submissions):
+        self.name=name
+        self.score=score
+        self.number_of_submissions=number_of_submissions
+lst=[]
+def cmp(a,b):
+    if a.score < b.score:
+        return 1
+    if a.score == b.score:
+        if a.number_of_submissions > b.number_of_submissions:
+            return 1
+        if a.number_of_submissions == b.number_of_submissions:
+            if a.name>b.name:
+                return 1
+            else:
+                return -1
+        else:
+            return -1
+    else:
+        return -1
+def main():
+    test=int(input())
+    for _ in range(test):
+        name=input()
+        score,number_of_submissions=map(int,input().split())
+        lst.append(student(name,score,number_of_submissions))
+    lst.sort(key=functools.cmp_to_key(cmp))
+    for i in lst:
+        print(i.name,i.score,i.number_of_submissions)
+
+if __name__=='__main__':
+    main()
