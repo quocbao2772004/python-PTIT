@@ -1,0 +1,20 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+from decimal import Decimal
+import math
+from math import sqrt,gcd
+
+class Rectangle:
+    def __init__(self, tu_so, mau_so):
+        self.tu_so=tu_so
+        self.mau_so=mau_so
+    def rut_gon(self):
+        mau_chung=gcd(self.mau_so,self.tu_so)
+        print(str(int(self.tu_so//mau_chung))+"/"+str(int(self.mau_so//mau_chung)))
+def main():
+    tuso,mauso=map(int,input().split())
+    r=Rectangle(tuso,mauso)
+    r.rut_gon()
+if __name__ == '__main__':
+    main()
