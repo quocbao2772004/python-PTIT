@@ -1,0 +1,30 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+lst=[]
+s=""
+def main():
+    global lst, s
+    while True:
+        try:
+            text=input().split()
+            for i in text:
+                if i[-1]=='.' or i[-1]=='?' or i[-1]=='!':
+                    s=s+i[0:-1]+' '
+                    lst.append(s)
+                    s=""
+                else:
+                    s=s+i+' '
+        except EOFError:
+            break
+    for i in lst:
+        # print(i[0])
+        print(i[0].upper(),end='')
+        print(i[1:].lower())
+
+
+if __name__=='__main__':
+    main()
