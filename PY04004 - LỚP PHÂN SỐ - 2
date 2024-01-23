@@ -1,0 +1,31 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+from decimal import Decimal
+import math
+from math import sqrt,gcd
+#a/b+c/d
+class Phanso:
+    def __init__(self, tu_so, mau_so):
+        self.tu_so=tu_so
+        self.mau_so=mau_so
+    def rut_gon(self):
+        mau_chung=gcd(self.mau_so,self.tu_so)
+        self.tu_so=self.tu_so//mau_chung
+        self.mau_so=self.mau_so//mau_chung
+    def cong(self, Phanso2):
+        mau_chung=self.mau_so*Phanso2.mau_so//gcd(self.mau_so,Phanso2.mau_so)
+        tu1=self.tu_so*(mau_chung//self.mau_so)
+        tu2=Phanso2.tu_so*(mau_chung//Phanso2.mau_so)
+        tu=tu1+tu2
+        uoc_chung=gcd(mau_chung,tu)
+        print(str(int(tu//uoc_chung))+"/"+str(int(mau_chung//uoc_chung)))
+def main():
+    tuso1,mauso1,tuso2,mauso2=map(int,input().split())
+    r1=Phanso(tuso1,mauso1)
+    r1.rut_gon()
+    r2=Phanso(tuso2,mauso2)
+    r2.rut_gon()
+    r1.cong(r2)
+if __name__ == '__main__':
+    main()
