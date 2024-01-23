@@ -1,0 +1,19 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        sum=0
+        for i in s:
+            sum=sum+int(i)
+        if sum%3==0:
+            print("YES")
+        else:
+            print("NO")
+
+if __name__=='__main__':
+    main()
