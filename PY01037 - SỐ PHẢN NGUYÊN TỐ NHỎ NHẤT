@@ -1,0 +1,58 @@
+import sys
+# fi=open('input.txt','r')
+# fo=open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+from bisect import bisect_left,bisect_right
+from decimal import Decimal
+import math
+from math import sqrt,gcd
+lst=[]
+max_x=1e7 * 2
+
+def count_divisors(n):
+    nt=2
+    res=1
+    while nt <= sqrt(n):
+        if n%nt==0:
+            c=0
+            while n%nt==0:
+                c+=1
+                n//=nt
+            res=res*(c+1)
+        nt+=1
+    if n>1:
+        res=res*2
+    return res
+def luu_so_phan_nguyen_to():
+    n2,n3,n5,n7,n11,n13=2,3,5,7,11,13
+    for i in range(0,7):
+        for j in range(0,i+1):
+            for k in range(0,j+1):
+                for x in range(0,k+1):
+                    for y in range(0,x+1):
+                        for z in range(0,y+1):
+                            s=(n2**i)*(n3**j)*(n5**k)*(n7**x)*(n11**y)*(n13**z)
+                            if s<= max_x:
+                                lst.append(s)
+    lst.sort()
+
+def main():
+    test=int(input())
+    luu_so_phan_nguyen_to()
+    luu=0
+    b=[]
+    for i in lst:
+        x=count_divisors(i)
+        if luu<x:
+            b.append(i)
+            luu=x
+    c=0
+    for i in sys.stdin:
+        n=int(i)
+        print(b[bisect_left(b,n)])
+        c+=1
+        if c==test:
+            break
+if __name__=='__main__':
+    main()
