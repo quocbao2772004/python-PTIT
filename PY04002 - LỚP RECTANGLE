@@ -1,0 +1,28 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+from decimal import Decimal
+import math
+from math import sqrt,gcd
+
+class Rectangle:
+    def __init__(self,width,height,color):
+        self.width=width
+        self.height=height
+        self.color=color
+    def perimeter(self):
+        return 2*(self.width+self.height)
+    def area(self):
+        return self.width*self.height
+    def color_standardization(self):
+        return self.color[0].upper()+self.color[1:].lower()
+
+def main():
+    s=input().split()
+    height,width,color=int(s[0]),int(s[1]),s[2]
+    if height >0 and width>0:
+        r=Rectangle(width,height,color)
+        print('{} {} {}'.format(r.perimeter(),r.area(),r.color_standardization()))
+    else:
+        print("INVALID")
+main()
