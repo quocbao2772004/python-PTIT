@@ -1,0 +1,27 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+m={}
+def main():
+    n=int(input())
+    a=list(map(int,input().split()))
+    for i in a:
+        if is_prime(i):
+            if i in m:
+                m[i]+=1
+            else:
+                m[i]=1
+    for i in m:
+        print(i,m[i],end=' ')
+        print()
+if __name__=='__main__':
+    main()
