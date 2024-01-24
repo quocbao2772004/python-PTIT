@@ -1,0 +1,30 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def tcs(n):
+    t=0
+    while n>0:
+        t+=(n%10)
+        n//=10
+    return t
+def cmp(a,b):
+    if tcs(a)>tcs(b):
+        return 1
+    elif tcs(a)<tcs(b):
+        return -1
+    else:
+        return a-b
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        a=list(map(int,input().split()))
+        a.sort(key=functools.cmp_to_key(cmp))
+        for i in a:
+            print(i,end=' ')
+        print()
+if __name__=='__main__':
+    main()
