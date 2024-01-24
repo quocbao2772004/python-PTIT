@@ -1,0 +1,45 @@
+# import sys
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+from bisect import bisect_left,bisect_right
+from decimal import Decimal
+import math
+from math import sqrt,gcd
+lst=[]
+class Triangle:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+    def calc_side_lengths(self, P):
+        return sqrt((self.x-P.x)**2+(self.y-P.y)**2)
+    def premeter(self,P2,P3):
+        return "{:.3f}".format(self.calc_side_lengths(P2)+ self.calc_side_lengths(P3)+P2.calc_side_lengths(P3))
+    def area(self,P2,P3):
+        a = self.calc_side_lengths(P2)
+        b= self.calc_side_lengths(P3)
+        c= P2.calc_side_lengths(P3)
+        return "{:.2f}".format(sqrt((a+b+c)*(a+b-c)*(a-b+c)*(-a+b+c))*0.25)
+
+def main():
+    lst = []
+    t = int(input())
+    for x in range(t):
+        lst += [float(i) for i in input().split()]
+    i = 0
+    for index in range(t):
+        x1,y1,x2,y2,x3,y3=lst[i],lst[i+1],lst[i+2],lst[i+3],lst[i+4],lst[i+5]
+        P1=Triangle(x1,y1)
+        P2=Triangle(x2,y2)
+        P3=Triangle(x3,y3)
+        a=P1.calc_side_lengths(P2)
+        b=P2.calc_side_lengths(P3)
+        c=P3.calc_side_lengths(P1)
+        if a+b <= c or a+c <= b or b+c <= a or a == 0 or b == 0 or c == 0:
+            print("INVALID")
+        else:
+            print(P1.area(P2,P3))
+        i+=6
+if __name__=='__main__':
+    main()
