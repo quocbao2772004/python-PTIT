@@ -1,0 +1,22 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def check(s):
+    sum=0
+    for i in range(0,len(s)-1):
+        if abs((ord(s[i])-ord('0'))-(ord(s[i+1])-ord('0')))!=2:
+            return False
+        sum=sum+int(s[i])
+    sum=sum+int(s[len(s)-1])
+    return sum%10==0
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        print("YES")if check(s) else print("NO")
+
+if __name__=='__main__':
+    main()
