@@ -1,0 +1,16 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        x=s[::-1]
+        print("YES") if gcd(int(x),int(s))==1 else print("NO")
+
+if __name__=='__main__':
+    main()
