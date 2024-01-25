@@ -1,0 +1,19 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def check(s):
+    for i in s:
+        if i != '0' and i != '1' and i != '2' :
+            return False
+    return True
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        print("YES" if check(s) else "NO")
+
+if __name__=='__main__':
+    main()
