@@ -1,0 +1,28 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def check(s):
+    if len(s)<=2:
+        return 0
+    ok=0
+    for i in range(0,len(s)-1):
+        if ok==0:
+            if s[i]>s[i+1]:
+                ok=1
+            elif s[i]==s[i+1]:
+                return 0
+        elif ok==1:
+            if s[i]<=s[i+1]:
+                return 0
+    return 1
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        print("YES" if check(s) else "NO")
+
+if __name__=='__main__':
+    main()
