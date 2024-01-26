@@ -1,0 +1,28 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        sum=0
+        res=1
+        ok=0
+        for i in range(0,len(s)):
+            if i%2==0:
+                sum+=int(s[i])
+            else:
+                if int(s[i])!=0:
+                    ok=1
+                    res*=int(s[i])
+        if ok==0:
+            print(sum,0)
+        else:
+            print(sum,res)
+
+if __name__=='__main__':
+    main()
