@@ -1,0 +1,30 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+def check(s):
+    sum_is_prime=0
+    sum_is_not_prime=0
+    for i in s:
+        if i!='2' and i!='3' and i!='5' and i!='7':
+            sum_is_not_prime+=1
+        else:
+            sum_is_prime+=1
+    return sum_is_prime>sum_is_not_prime
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        print("YES" if is_prime(len(s)) and check(s) else "NO")
+
+if __name__=='__main__':
+    main()
