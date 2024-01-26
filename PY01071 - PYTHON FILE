@@ -1,0 +1,20 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+
+    s=input()
+    s1=s[-3:]
+    if s1[0]=='.' and s1[1].lower()=='p' and s1[2].lower()=='y':
+        print("yes")
+    else:
+        print("no")
+
+
+
+if __name__=='__main__':
+    main()
