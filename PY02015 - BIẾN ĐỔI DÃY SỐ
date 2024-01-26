@@ -1,0 +1,23 @@
+import sys
+
+# fi=open('input.txt','r')
+# sys.stdin=fi
+
+
+def main():
+    while True:
+        a,b,c,d=map(int,input().split())
+        if a==b==c==d==0:
+            break
+        x=0
+        while a!=b or b!=c or c!=d or d!=a:
+            luu=a
+            a=abs(b-a)
+            b=abs(c-b)
+            c=abs(d-c)
+            d=abs(d-luu)
+            x+=1
+        print(x)
+
+if __name__=='__main__':
+    main()
