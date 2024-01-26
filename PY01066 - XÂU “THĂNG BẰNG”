@@ -1,0 +1,21 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def check(s,x):
+    for i in range(1,len(s)):
+        if abs(ord(s[i])-ord(s[i-1])) !=abs(ord(x[i])-ord(x[i-1])):
+            return 0
+    return 1
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        s1=s[::-1]
+        print("YES" if check(s,s1) else "NO")
+
+
+if __name__=='__main__':
+    main()
