@@ -1,0 +1,32 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+def check(s):
+    for i in range(0,len(s)):
+        if i%2!=int(s[i])%2:
+            return 0
+    return 1
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+def tcs(n):
+    t=0
+    for i in n:
+        t+=int(i)
+    return t
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        print("YES" if check(s) and is_prime(tcs(s)) else "NO")
+
+
+if __name__=='__main__':
+    main()
