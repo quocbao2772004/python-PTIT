@@ -1,0 +1,42 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+demA=demB=demC=0
+x=[0 for _ in range(1000)]
+def display(x):
+    for i in x:
+        print(i,end=' ')
+    print()
+def solve(i,demA,demB,demC,n):
+    for j in range(1,4):
+        x[i]=j
+        if j==1:
+            demA+=1
+        elif j==2:
+            demB+=1
+        else:
+            demC+=1
+        if i==n:
+            if demA <= demB <= demC and demA !=0 and demB !=0 and demC !=0:
+                # print(demA,demB,demC,end=' ')
+                # print()
+                for v in range(1,n+1):
+                    print(chr(x[v]+64),end='')
+                print()
+        else:
+            solve(i+1,demA,demB,demC,n)
+        if j==1:
+            demA-=1
+        elif j==2:
+            demB-=1
+        else:
+            demC-=1
+def main():
+    n=int(input())
+    for i in range(3,n+1):
+        solve(1,0,0,0,i)
+if __name__=='__main__':
+    main()
