@@ -1,0 +1,17 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        n=input()
+        print(len(s.split(n))-1)
+
+
+if __name__=='__main__':
+    main()
