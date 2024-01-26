@@ -1,0 +1,21 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+
+def main():
+    test=int(input())
+
+    for _ in range(test):
+        ans=1
+        s=input()
+        for i in s:
+            if i!='0':
+                ans*=int(i)
+        print(ans)
+
+if __name__=='__main__':
+    main()
