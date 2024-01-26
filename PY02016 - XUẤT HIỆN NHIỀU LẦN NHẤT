@@ -1,0 +1,30 @@
+import sys
+
+# fi=open('input.txt','r')
+# sys.stdin=fi
+
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        mp={}
+        n=int(input())
+        a=list(map(int,input().split()))
+        for i in a:
+            if i not in mp:
+                mp[i]=1
+            else:
+                mp[i]+=1
+        b=-1
+        for i in mp:
+            b=max(b,mp[i])
+        ans=0
+        for i in mp:
+            # print(i,mp[i])
+            if mp[i]==b:
+                ans=i
+                break
+
+        print(ans if mp[ans]>n//2 else "NO")
+if __name__=='__main__':
+    main()
