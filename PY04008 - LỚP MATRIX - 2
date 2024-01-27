@@ -1,0 +1,40 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+d=[]
+def main():
+    test=int(input())
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                d.append(int(i))
+        except EOFError:
+            break
+    i1=0
+    for _ in range(test):
+        n,m=d[i1],d[i1+1]
+        i1+=2
+        a=[[0 for _ in range(m)] for _ in range(n)]
+        b=[[0 for _ in range(n)] for _ in range(m)]
+        c=[[0 for _ in range(n)] for _ in range(n)]
+        for i in range (n):
+            for j in range(m):
+                a[i][j]=d[i1]
+                i1+=1
+        for i in range(m):
+            for j in range(n):
+                b[i][j]=a[j][i]
+        for i in range(n):
+            for j in range(n):
+                for k in range(m):
+                    c[i][j]+=a[i][k]*b[k][j]
+        for i in range(n):
+            for j in range(n):
+                print(c[i][j],end=' ')
+            print()
+if __name__=='__main__':
+    main()
