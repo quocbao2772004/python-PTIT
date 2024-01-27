@@ -1,0 +1,31 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+def tcs(n):
+    t=1
+    while n>0:
+        t=t*(n%10)
+        n//=10
+    return t
+def cmp(a,b):
+    if tcs(a)>tcs(b):
+        return 1
+    if tcs(a)<tcs(b):
+        return -1
+    if tcs(a)==tcs(b):
+        if a<b:
+            return -1
+        return 1
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        a=list(map(int,input().split()))
+        a.sort(key=functools.cmp_to_key(cmp))
+        for i in a:
+            print(i,end=' ')
+        print()
+if __name__=='__main__':
+    main()
