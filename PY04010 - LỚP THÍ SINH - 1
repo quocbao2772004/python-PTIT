@@ -1,0 +1,27 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+class student:
+    def __init__(self,name,date,score1,score2,score3):
+        self.name=name
+        self.date=date
+        self.score1=score1
+        self.score2=score2
+        self.score3=score3
+    def display(self):
+        print(self.name,self.date,self.score1+self.score2+self.score3)
+
+def main():
+    name=input()
+    date=input()
+    score1=float(input())
+    score2=float(input())
+    score3=float(input())
+    S1=student(name,date,score1,score2,score3)
+    S1.display()
+if __name__=='__main__':
+    main()
