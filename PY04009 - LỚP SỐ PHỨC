@@ -1,0 +1,54 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+# (a+bi)*(c+di)
+# = a*c + (ad+bc)*i -bd
+class so_phuc:
+    def __init__(self,phan_thuc,phan_ao):
+        self.phan_thuc=phan_thuc
+        self.phan_ao=phan_ao
+    def multiple(self, so2):
+        return so_phuc(self.phan_thuc*so2.phan_thuc-self.phan_ao*so2.phan_ao, self.phan_thuc*so2.phan_ao+self.phan_ao*so2.phan_thuc)
+    def sum(self,so2):
+        return so_phuc(self.phan_thuc+so2.phan_thuc, self.phan_ao+so2.phan_ao)
+    def calc_C(self,so2):
+        x1=self.sum(so2)
+        return x1.multiple(self)
+    def calc_D(self,so2):
+        x1 = self.sum(so2)
+        return x1.multiple(x1)
+    def display(self):
+        if self.phan_ao>0:
+            print(self.phan_thuc,'+',str(abs(self.phan_ao))+'i',end='')
+        else:
+            print(self.phan_thuc,'-',str(abs(self.phan_ao))+'i',end='')
+
+dd=[]
+def main():
+    test=int(input())
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                dd.append(int(i))
+        except EOFError:
+            break
+    i1=0
+    for _ in range(test):
+        a,b,c,d=dd[i1],dd[i1+1],dd[i1+2],dd[i1+3]
+        i1+=4
+        so1=so_phuc(a,b)
+        so2=so_phuc(c,d)
+        x1=so1.calc_C(so2)
+        x2=so1.calc_D(so2)
+        x1.display()
+        print(', ',end='')
+        x2.display()
+        print()
+
+if __name__=='__main__':
+    main()
