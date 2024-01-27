@@ -1,0 +1,20 @@
+import sys
+import functools
+import math
+from math import gcd
+# fi=open('input.txt','r')
+# sys.stdin=fi
+
+
+def main():
+    n=int(input())
+    a=list(map(int,input().split()))
+    ans=0
+    for i in range(0,n-1):
+        for j in range(i+1,n):
+            if a[i]>a[j]:
+                ans+=1
+    print(ans)
+if __name__=='__main__':
+    main()
+
