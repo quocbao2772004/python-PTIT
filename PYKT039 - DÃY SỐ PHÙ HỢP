@@ -1,0 +1,23 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def check(a,b):
+    for i in range(0,len(a)):
+        if a[i]>b[i]:
+            return 0
+    return 1
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        a=list(map(int,input().split()))
+        b=list(map(int,input().split()))
+        a.sort()
+        b.sort()
+        print("YES" if check(a,b) else "NO")
+if __name__=='__main__':
+    main()
