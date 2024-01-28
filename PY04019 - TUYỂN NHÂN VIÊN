@@ -1,0 +1,56 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+# Nếu điểm dưới 5 -> TRUOT
+# Nếu điểm lớn hơn hoặc bằng 5 nhưng nhỏ hơn 8 -> CAN NHAC
+# Nếu điểm từ 8 đến 9.5 -> DAT
+# Nếu điểm lớn hơn 9.5 -> XUAT SAC
+
+class candidate:
+    def __init__(self,name, theoretical_score, practical_score):
+        self.name = name
+        self.theoretical_score = theoretical_score
+        self.practical_score = practical_score
+    def calc_everange_score(self):
+        x=self.theoretical_score+self.practical_score
+        x/=2
+        return x
+    def mapping(self):
+        everange=float(self.calc_everange_score())
+        if everange<5:
+            return "TRUOT"
+        elif 5<=everange<8:
+            return "CAN NHAC"
+        elif 8<=everange<9.5:
+            return "DAT"
+        else:
+            return "XUAT SAC"
+
+
+mp={}
+
+def main():
+    n=int(input())
+    stt = 0
+    for _ in range(n):
+        stt+=1
+        name=input()
+        theoretical_score=float(input())
+        practical_score=float(input())
+        if theoretical_score > 10:
+            theoretical_score /= 10
+        if practical_score > 10:
+            practical_score /= 10
+        c=candidate(name,theoretical_score,practical_score)
+        mp[stt]=(name, c.calc_everange_score(), c.mapping())
+    sorted_mp=dict(sorted(mp.items(),key=lambda item: item[1][1], reverse=True))
+    for stt,(name, ever, result) in sorted_mp.items():
+        print("TS0"+str(stt),end=' ')
+        print(name,"{:.2f}".format(ever),result)
+
+if __name__=='__main__':
+    main()
