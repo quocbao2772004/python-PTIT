@@ -1,0 +1,41 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+
+class gamer:
+    def __init__(self,id, name, time_in, time_out):
+        self.id = id
+        self.name = name
+        self.time_in = time_in
+        self.time_out = time_out
+    def calc_time(self):
+        time1=int(self.time_in[0:2])*60+int(self.time_in[3:])
+        time2 = int(self.time_out[0:2]) * 60 + int(self.time_out[3:])
+        time=time2-time1
+        return time
+def time_format(time):
+    return str(time//60)+" gio " + str(time-(time//60)*60)+" phut"
+mp={}
+
+def main():
+    n=int(input())
+    stt = 0
+    for _ in range(n):
+        stt+=1
+        id=input()
+        name=input()
+        time_in=input()
+        time_out=input()
+        g=gamer(id,name,time_in,time_out)
+        mp[stt]=(id,name,g.calc_time())
+    sorted_mp=dict(sorted(mp.items(),key=lambda item:item[1][2],reverse=True))
+    for stt,(id,name,time) in sorted_mp.items():
+        print(id,name,time_format(time))
+
+if __name__=='__main__':
+    main()
