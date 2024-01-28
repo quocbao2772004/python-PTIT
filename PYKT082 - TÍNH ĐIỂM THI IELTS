@@ -1,0 +1,68 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def score(a):
+    if 39<=a<=40:
+        return 9.0
+    elif 37<=a<=38:
+        return 8.5
+    elif 35<=a<=36:
+        return 8.0
+    elif 33<=a<=34:
+        return 7.5
+    elif 30<=a<=32:
+        return 7.0
+    elif 27<=a<=29:
+        return 6.5
+    elif 23<=a<=26:
+        return 6.0
+    elif 20<=a<=22:
+        return 5.5
+    elif 16<=a<=19:
+        return 5.0
+    elif 13<=a<=15:
+        return 4.5
+    elif 10<=a<=12:
+        return 4.0
+    elif 7<=a<=9:
+        return 3.5
+    elif 5<=a<=6:
+        return 3.0
+    else:
+        return 2.5
+def main():
+    test=int(input())
+    for _ in range(test):
+        a,b,c,d=map(float,input().split())
+        sa=score(a)
+        sb=score(b)
+        everange=sa+sb+c+d
+        x=everange//4
+        everange /= 4
+        # print(x,everange)
+        if everange< float(x+0.25):
+            print("{:.1f}".format(x))
+        elif float(x+0.25)<=everange<float(x+0.75):
+            print("{:.1f}".format(x+0.5))
+        else:
+            print("{:.1f}".format(x+1.0))
+        # everange=str(everange).split('.')
+        # x=everange
+        # if everange[1]<"25":
+        #     print(everange[0]+".0")
+        # elif "25"<=everange[1]<"75":
+        #     print(everange[0]+".5")
+        # elif int(everange[1])>="75":
+        #     print(str(int(everange[0])+1)+".0")
+
+
+
+if __name__=='__main__':
+    main()
