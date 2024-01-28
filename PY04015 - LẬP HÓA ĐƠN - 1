@@ -1,0 +1,44 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+# 0-50: 100 :2%
+# 51-100: 150 3%
+# >100: 200: 5%
+class invoice:
+    def __init__(self,name, old_meter_reading, new_meter_reading):
+        self.name=name
+        self.old_meter_reading=old_meter_reading
+        self.new_meter_reading= new_meter_reading
+    def calc_cost(self):
+        total=self.new_meter_reading-self.old_meter_reading
+        if total>100:
+            return round((50*100+50*150+(total-100)*200)*105/100)
+        elif 51<=total<=100:
+            return round((50*100+(total-50)*150)*103/100)
+        else:
+            return round((total*100)*102/100)
+
+
+mp={}
+
+def main():
+    n=int(input())
+    stt = 0
+    for _ in range(n):
+        stt+=1
+        name=input()
+        old_meter_reading=int(input())
+        new_meter_reading=int(input())
+        i=invoice(name,old_meter_reading,new_meter_reading)
+        mp[stt]=(name, i.calc_cost())
+    sorted_mp=dict(sorted(mp.items(), key=lambda item: item[1][1], reverse=True))
+    for stt,(name,cost) in sorted_mp.items():
+        print("KH"+str(stt) if len(str(stt))>=2 else "KH0"+str(stt),end=' ')
+        print(name,cost)
+
+if __name__=='__main__':
+    main()
