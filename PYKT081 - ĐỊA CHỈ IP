@@ -1,0 +1,31 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def check(s):
+    if len(s)!=4:
+        return 0
+    for i in s:
+        if not i.isdigit():
+            return 0
+        if int(i)>=256:
+            return 0
+    return 1
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        ok=1
+        s=input().split('.')
+
+        print("YES" if check(s) else "NO")
+
+
+
+if __name__=='__main__':
+    main()
