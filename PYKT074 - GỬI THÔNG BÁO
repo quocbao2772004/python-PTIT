@@ -1,0 +1,29 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def main():
+    test=int(input())
+    ok=0
+    for _ in range(test):
+        a = []
+        s=input().split()
+        sum=0
+        for i in s:
+            if sum+len(i)<=100:
+                sum+=len(i)+1
+                print(i,end=' ')
+            else:
+                break
+        print()
+
+
+
+if __name__=='__main__':
+    main()
