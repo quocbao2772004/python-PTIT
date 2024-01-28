@@ -1,0 +1,33 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def dec(s):
+    j=0
+    t=0
+    for i in range(len(s)-1,-1,-1):
+        t+=int(s[i])*(2**j)
+        j+=1
+    return str(t)
+a=[]
+# 11001100
+def main():
+    s=input()
+    while len(s)%3!=0:
+        s="0"+s
+    x,res,i="","",0
+    while i<=len(s)-1:
+        x=x+s[i]
+        if len(x)==3:
+            a.append(x)
+            x=""
+        i+=1
+    for i in a:
+        res=res+dec(i)
+    print(res)
+
+if __name__=='__main__':
+    main()
