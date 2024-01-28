@@ -1,0 +1,47 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+# Dong Anh
+# 07:30
+# 08:00
+# 60
+class amount_of_rain:
+    def __init__(self,name,begin,end,amount):
+        self.name=name
+        self.begin=begin
+        self.end=end
+        self.amount=amount
+    def calc_time(self):
+        begin_in_minutes=int(self.begin[0:2])*60+int(self.begin[3:])
+        end_in_minutes=int(self.end[0:2])*60+int(self.end[3:])
+        # print(begin_in_minutes,end_in_minutes)
+        return end_in_minutes-begin_in_minutes
+    def calc_rain(self):
+        return self.amount
+mp={}
+def main():
+    n=int(input())
+    for _ in range(n):
+        name=input()
+        begin=input()
+        end=input()
+        amount=int(input())
+        Tp1 = amount_of_rain(name, begin, end, amount)
+        if name not in mp:
+            mp[name]=(Tp1.calc_time(),Tp1.calc_rain())
+        else:
+            mp[name]=(mp[name][0]+Tp1.calc_time(),mp[name][1]+Tp1.calc_rain())
+    stt=1
+    for i in mp:
+        print("T",end='')
+        if len(str(stt))<2:
+            print("0"+str(stt),end=' ')
+        else:
+            print(str(stt),end=' ')
+        print(i,"{:.2f}".format(60*mp[i][1]/mp[i][0]))
+        stt+=1
+if __name__=='__main__':
+    main()
