@@ -1,0 +1,55 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+# Học sinh được xếp hạng theo điểm trung bình:
+#
+# Từ 9 trở lên: loại XUAT SAC
+# Từ 8 đến 8.9: loại GIOI
+# Từ 7 đến 7.9: loại KHA
+# Từ 5 đến 6.9: loại TB
+# Dưới 5: loai YEU
+class transcript:
+    def __init__(self,name,score):
+        self.name=name
+        self.score=score
+    def calc_everange(self):
+        sum=0
+        for i in self.score:
+            sum=sum+i
+        sum=sum+self.score[0]+self.score[1]
+        sum/=12
+        return sum.quantize(Decimal('0.1'), ROUND_HALF_UP)
+    def rank(self):
+        everange_score=float(self.calc_everange())
+        if everange_score < 5:
+            return "YEU"
+        elif 5<= everange_score <=6.9:
+            return "TB"
+        elif 7<= everange_score <=7.9:
+            return "KHA"
+        elif 8<= everange_score <=8.9:
+            return "GIOI"
+        else:
+            return "XUAT SAC"
+
+mp={}
+
+def main():
+    n=int(input())
+    stt = 0
+    for _ in range(n):
+        stt+=1
+        name=input()
+        score=list(map(Decimal,input().split()))
+        hs=transcript(name,score)
+        mp[stt]=(name, hs.calc_everange(), hs.rank())
+    sorted_mp=dict(sorted(mp.items(), key=lambda item: item[1][1], reverse=True))
+    for stt,(name,score,rank) in sorted_mp.items():
+        print("HS"+str(stt) if len(str(stt))>=2 else "HS0"+str(stt),end=' ')
+        print(name,score,rank)
+if __name__=='__main__':
+    main()
