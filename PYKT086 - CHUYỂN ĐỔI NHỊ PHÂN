@@ -1,0 +1,36 @@
+import sys
+import functools
+fi=open('DATA.in','r')
+sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def bin_to_dec(s):
+    j=0
+    t=0
+    for i in range(len(s)-1,-1,-1):
+        t=t+(int(s[i])*(2**j))
+        j+=1
+    return t
+d=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+def main():
+    ok=0
+    test=int(input())
+    for _ in range(test):
+        b=int(input())
+        s=input()
+        n=bin_to_dec(s)
+        x=""
+        while n>0:
+            x=d[n%b]+x
+            n//=b
+        print(x)
+    fi.close()
+
+
+
+if __name__=='__main__':
+    main()
