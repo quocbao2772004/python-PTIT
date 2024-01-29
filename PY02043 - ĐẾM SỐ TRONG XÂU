@@ -1,0 +1,24 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        a=input()
+        save=a
+        b=input()
+        a=a.split(b)
+        s=0
+        for i in a:
+            s=s+len(i)
+        print((len(save)-s)//len(b))
+
+if __name__=='__main__':
+    main()
