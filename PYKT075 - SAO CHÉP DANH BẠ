@@ -1,0 +1,38 @@
+import sys
+import functools
+fi=open('SOTAY.txt','r')
+sys.stdin=fi
+fo=open('DIENTHOAI.txt','w')
+sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+mp={}
+def main():
+    save_s=""
+
+    while True:
+        try:
+            s=input()
+            x=s.split()
+            if x[0]=='Ngay':
+                if x[1] not in mp:
+                    mp[x[1]]=[]
+                save_s=x[1]
+            else:
+                mp[save_s].append(s)
+        except EOFError:
+            break
+    d=-1
+    for i in mp:
+        my_set=mp[i]
+        for j in my_set:
+            if d==-1:
+                print("{}: ".format(j),end='')
+            else:
+                print("{} {}".format(j,i))
+            d*=-1
+    fi.close()
+    fo.close()
+if __name__=='__main__':
+    main()
