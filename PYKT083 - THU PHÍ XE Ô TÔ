@@ -1,0 +1,41 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def mapping(loai_xe,so_cho):
+    if loai_xe == "Xe_con":
+        if so_cho =="5":
+            return 10000
+        else:
+            return 15000
+    elif loai_xe == "Xe_tai":
+        return 20000
+    else:
+        if so_cho =="29":
+            return 50000
+        else:
+            return 70000
+mp={}
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input().split()
+        bien_so, loai_xe, so_cho, vao_ra, ngay=s[0],s[1],s[2],s[3],s[4]
+        # print(bien_so,loai_xe,so_cho,vao_ra,ngay)
+        if vao_ra=='IN':
+            if ngay not in mp:
+                mp[ngay]=mapping(loai_xe,so_cho)
+            else:
+                mp[ngay]+=mapping(loai_xe,so_cho)
+    for i in mp:
+            print("{}: {}".format(i,mp[i]))
+
+
+
+if __name__=='__main__':
+    main()
