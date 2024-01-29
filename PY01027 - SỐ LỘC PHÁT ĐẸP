@@ -1,0 +1,30 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def check(s):
+    d=0
+    for i in range(0,len(s)):
+        if s[i]!='6' and s[i]!='8':
+            return 0
+        if s[i]=='8':
+            d+=1
+            if d==0:
+                return 0
+        if s[i]=='6':
+            d=0
+        if d==2:
+            d=-1
+    return 1
+def main():
+    s=input()
+    print("YES" if check(s) else "NO")
+
+
+if __name__=='__main__':
+    main()
