@@ -1,0 +1,39 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def is_prime(n):
+    if n<2:
+        return 0
+    for i in range(2,int(sqrt(n))+1):
+        if n%i==0:
+            return 0
+    return 1
+def main():
+    ok=0
+    n=int(input())
+    a=list(map(int,input().split()))
+    mp={}
+    for i in a:
+        mp[i]=1
+    b=list(mp)
+    n=len(b)
+    for i in range(1,n):
+        b[i]+=b[i-1]
+    for i in range(0,n):
+        if is_prime(b[i]) and is_prime(b[n-1]-b[i]):
+            print(i)
+            ok=1
+            break
+    if ok==0:
+        print("NOT FOUND")
+
+
+
+if __name__=='__main__':
+    main()
