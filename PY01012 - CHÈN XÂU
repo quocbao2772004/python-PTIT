@@ -1,0 +1,29 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+# mongon ngu C.n thcs2 hoc de
+def main():
+    ok=0
+    s1=input()
+    s2=input()
+    p=int(input())
+    for i in range(0,len(s1)):
+        if i==p-1:
+            ok=1
+            print(s2,end='')
+            print(s1[i],end='')
+        else:
+            print(s1[i],end='')
+    if ok==0:
+        print(s2,end='')
+
+
+
+if __name__=='__main__':
+    main()
