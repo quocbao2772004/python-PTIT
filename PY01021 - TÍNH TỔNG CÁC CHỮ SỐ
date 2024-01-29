@@ -1,0 +1,29 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+# mongon ngu C.n thcs2 hoc de
+def main():
+    test=int(input())
+    for _ in range(test):
+        s=input()
+        a=[]
+        sum=0
+        for i in s:
+            if i.isalpha():
+                a.append(i)
+            else:
+                sum=sum+int(i)
+        a.sort()
+        for i in a:
+            print(i,end='')
+        print(sum)
+
+
+if __name__=='__main__':
+    main()
