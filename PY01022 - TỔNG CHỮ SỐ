@@ -1,0 +1,27 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def tcs(s):
+    sum=0
+    for i in s:
+        sum=sum+(ord(i)-ord('0'))
+    return str(sum)
+def main():
+
+    s=input()
+    t=0
+    while len(s)>1:
+        s=tcs(s)
+        t+=1
+    print(t if t!=0 else 1)
+
+
+
+if __name__=='__main__':
+    main()
