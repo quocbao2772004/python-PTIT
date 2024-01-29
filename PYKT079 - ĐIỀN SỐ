@@ -1,0 +1,24 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('DIENTHOAI.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+mp={}
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        a=list(map(int,input().split()))
+        b=set(a)
+        ma=max(a)
+        mi=min(a)
+        print(ma-mi-len(b)+1)
+
+
+if __name__=='__main__':
+    main()
