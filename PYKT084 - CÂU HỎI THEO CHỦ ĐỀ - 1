@@ -1,0 +1,46 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+mp={}
+# Home/accommodation
+# What kind of housing/accommodation do you live in?
+# Who do you live with?
+# How long have you lived there?
+#
+# Study
+# Describe your education
+# What is your area of specialization?
+# Why did you choose to study that major?
+def main():
+    ok=0
+    test=int(input())
+    save_s=""
+    while True:
+        try:
+            s=input()
+            if len(s)==0:
+                ok=0
+            else:
+                if ok==0:
+                    save_s=s
+                    mp[s]=0
+                    ok=1
+                elif ok==1:
+                    mp[save_s]+=1
+        except EOFError:
+            break
+    for i in mp:
+        print("{}: {}".format(i,mp[i]))
+
+
+
+
+if __name__=='__main__':
+    main()
