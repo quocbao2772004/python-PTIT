@@ -1,0 +1,31 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+mp=[0]*100
+def main():
+    ok=0
+    s=input()
+    k=int(input())
+    for i in range(0,len(s)-1,2):
+        x=s[i]+s[i+1]
+        mp[int(x)]+=1
+    for i in range(99):
+        if mp[i]>=k:
+            ok=1
+            print(i,mp[i])
+    if not ok:
+        print("NOT FOUND")
+
+
+
+
+
+
+if __name__=='__main__':
+    main()
