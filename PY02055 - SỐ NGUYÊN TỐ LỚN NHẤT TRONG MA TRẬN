@@ -1,0 +1,49 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+is_prime=[True for i in range(1000)]
+def snt():
+    is_prime[0]=is_prime[1]=False
+    for i in range (2,1000):
+        if is_prime[i]:
+            for j in range(i*i,1000,i):
+                is_prime[j]=0
+
+def main():
+    snt()
+    # for i in range(2,1000):
+    #     if is_prime[i]:
+    #         print(i,end=' ')
+    # print()
+    n,m=map(int,input().split())
+    a=[[0 for _ in range(m)] for _ in range(n)]
+    mp=[]
+    for i in range(1,1000):
+        mp.append([])
+    for i in range(n):
+        s=input().split()
+        for j in range(m):
+            a[i][j]=int(s[j])
+    luu_max=-1
+    for i in range(n):
+        for j in range(m):
+            if is_prime[a[i][j]]:
+                if a[i][j]>luu_max:
+                    luu_max=a[i][j]
+                    mp[a[i][j]].append((i,j))
+                elif a[i][j]==luu_max:
+                    mp[a[i][j]].append((i,j))
+    if luu_max!=-1:
+        print(luu_max)
+        for (i,j) in mp[luu_max]:
+            print("Vi tri [{}][{}]".format(i,j))
+    else:
+        print("NOT FOUND")
+if __name__=='__main__':
+    main()
