@@ -1,0 +1,27 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+d=[]
+def build():
+    for i in range(0,10):
+        d.append(str(i))
+    for i in range(0,26):
+        d.append(chr(i+65))
+def main():
+    test=int(input())
+    build()
+   
+    for _ in range(test):
+        n,b=map(int,input().split())
+        res=""
+        while n>0:
+            res=d[n%b]+res
+            n//=b
+        print(res)
+
+if __name__=='__main__':
+    main()
