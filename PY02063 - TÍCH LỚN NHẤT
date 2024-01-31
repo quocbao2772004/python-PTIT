@@ -1,0 +1,21 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+def main():
+    n=int(input())
+    a=list(map(int,input().split()))
+    a.sort()
+    res=[]
+    res.append(a[n-1]*a[n-2]*a[n-3])
+    res.append(a[0]*a[1]*a[n-1])
+    res.append(a[0]*a[1])
+    res.append(a[n-1]*a[n-2])
+    print(max(res))
+if __name__=='__main__':
+    main()
