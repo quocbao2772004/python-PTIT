@@ -1,0 +1,32 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def main():
+    while True:
+        a=[]
+        n=int(input())
+        if n==0:
+            break
+        for _ in range (n):
+            x=int(input())
+            a.append(x)
+        if min(a)==max(a):
+            print("BANG NHAU")
+        else:
+            print(min(a),max(a))
+
+
+
+
+
+
+
+if __name__=='__main__':
+    main()
