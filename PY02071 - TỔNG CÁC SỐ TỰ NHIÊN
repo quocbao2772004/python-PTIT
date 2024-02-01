@@ -1,0 +1,39 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+x=[0]*1000
+
+def thu(i,s,n,sum,res):
+    for j in range(s,0,-1):
+        if sum+j<=n:
+            x[i]=j
+            sum+=x[i]
+            if sum == n:
+                x1=""
+                for v in range(1,i+1):
+                    x1=x1+str(x[v])
+                    if v!=i:
+                        x1=x1+" "
+                res.append(x1)
+            else:
+                thu(i+1,j,n,sum,res)
+            sum-=j
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n=int(input())
+        res=[]
+        thu(1,n,n,0,res)
+        print(len(res))
+        for i in res:
+            print("({})".format(i),end=' ')
+        print()
+if __name__=='__main__':
+    main()
