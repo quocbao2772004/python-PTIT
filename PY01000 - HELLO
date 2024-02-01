@@ -1,0 +1,11 @@
+#import sys
+#fi=open('input.txt','r')
+#sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    n=input()
+    print("Hello {}!".format(n))
+if __name__=='__main__':
+    main()
