@@ -1,0 +1,35 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+mp={}
+def main():
+    n=int(input())
+    for _ in range(n):
+        s=input()
+        for i in s:
+            if not i.isalnum():
+                s=s.replace(i,' ')
+        # print(s)
+        s=s.split()
+        for i in s:
+            x=""
+            for j in i:
+                if j.isalpha():
+                    x=x+j.lower()
+            if x!="":
+                if x not in mp:
+                    mp[x]=1
+                else:
+                    mp[x]+=1
+    mp_sorted=dict(sorted(mp.items(), key=lambda item:(-item[1],item[0])))
+    for key,value in mp_sorted.items():
+        print(key,value)
+if __name__=='__main__':
+    main()
