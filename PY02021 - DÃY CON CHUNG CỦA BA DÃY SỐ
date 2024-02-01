@@ -1,0 +1,39 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,m,v=map(int,input().split())
+        a=list(map(int,input().split()))
+        b = list(map(int, input().split()))
+        c = list(map(int, input().split()))
+        i,j,k=0,0,0
+        ok=0
+        while i<n and j<m and k<v:
+            if a[i]==b[j]==c[k]:
+                ok=1
+                print(a[i],end=' ')
+                i+=1
+                j+=1
+                k+=1
+            elif a[i]<b[j]:
+                i+=1
+            elif b[j]<c[k]:
+                j+=1
+            else:
+                k+=1
+        if ok:
+            print()
+        else:
+            print("NO")
+if __name__=='__main__':
+    main()
