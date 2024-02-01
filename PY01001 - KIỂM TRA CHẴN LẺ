@@ -1,0 +1,15 @@
+#import sys
+#fi=open('input.txt','r')
+#sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+
+def main():
+    n=int(input())
+    if n%2==0:
+        print("CHAN")
+    else:
+        print("LE")
+
+if __name__=='__main__':
+    main()
