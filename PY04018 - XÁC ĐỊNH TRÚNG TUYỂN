@@ -1,0 +1,66 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+from collections import deque
+from datetime import datetime
+# 3
+# Le Van Binh
+# A1
+# 7.0
+# 3.0
+# Tran Van Toan
+# B3
+# 4.0
+# 7.0
+# Hoang Thi Tam
+# C2
+# 7.0
+# 6.0
+
+# GV03 Hoang Thi Tam HOA 21.5 TRUNG TUYEN
+# GV01 Le Van Binh TOAN 19.0 TRUNG TUYEN
+# GV02 Tran Van Toan LY 16.0 LOAI
+def mapping_subject(subject):
+    if subject=='A':
+        return "TOAN"
+    elif subject=='B':
+        return "LY"
+    else:
+        return "HOA"
+def mapping_priority_id(priority_id):
+    if priority_id=='1':
+        return 2.0
+    elif priority_id=='2':
+        return 1.5
+    elif priority_id=='3':
+        return 1.0
+    else:
+        return 0.0
+mp={}
+
+def main():
+    n=int(input())
+    stt = 1
+    start_time="6:00"
+    for _ in range(n):
+        name=input()
+        subject=input()
+        diem_tin=float(input())
+        diem_chuyen_mon=float(input())
+        mp[stt]=(name,mapping_subject(subject[0]),diem_tin*2+diem_chuyen_mon+mapping_priority_id(subject[1]))
+        stt+=1
+    mp_sorted=dict(sorted(mp.items(),key=lambda item:item[1][2], reverse=True))
+    for stt,(name,subject,point) in mp_sorted.items():
+        print("GV{0:0>2}".format(stt),end=' ')
+        print(name,subject,point,end=' ')
+        print("TRUNG TUYEN" if point >= 18 else "LOAI")
+    # print(mp)
+if __name__=='__main__':
+    main()
