@@ -1,0 +1,38 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+a,b,c=[],[],[]
+def main():
+    n=int(input())
+    while True:
+        s=input().split()
+        for i in s:
+            a.append(int(i))
+        if len(a)==n:
+            break
+    for i in a:
+        if i%2==0:
+            b.append(i)
+        else:
+            c.append(i)
+    b.sort()
+    c.sort(reverse=True)
+    i,j=0,0
+    for x in range(0,len(a)):
+        if a[x]%2==0:
+            print(b[i],end=' ')
+            i+=1
+        else:
+            print(c[j],end=' ')
+            j+=1
+    # print(b,c)
+
+if __name__=='__main__':
+    main()
