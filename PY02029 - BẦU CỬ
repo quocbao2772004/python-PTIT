@@ -1,0 +1,36 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+mp={}
+def main():
+    n,m=map(int,input().split())
+    a=list(map(int,input().split()))
+    for i in a:
+        if i not in mp:
+            mp[i]=1
+        else:
+            mp[i]+=1
+    ma=0
+    for i in mp:
+        ma=max(ma,mp[i])
+    mp_sorted=dict(sorted(mp.items(),key=lambda item:item[0]))
+    res=0
+    ans=-1
+    for i in mp:
+        if mp[i]>res and mp[i]<ma:
+            res=mp[i]
+            ans=i
+    if ans==-1:
+        print("NONE")
+    else:
+        print(ans)
+
+if __name__=='__main__':
+    main()
