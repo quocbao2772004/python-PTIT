@@ -1,0 +1,37 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+from collections import deque
+from datetime import datetime
+
+# 2
+# MUL1320
+# Nhap mon da phuong tien
+# Bai tap lon + Van dap truc tuyen
+# BAS1203
+# Giai tich 1
+# Thi viet + Van dap truc tuyen
+
+# BAS1203 Giai tich 1 Thi viet + Van dap truc tuyen
+# MUL1320 Nhap mon da phuong tien Bai tap lon + Van dap truc tuyen
+mp={}
+def main():
+    n=int(input())
+    for _ in range(n):
+        id=input()
+        subject_name=input()
+        exam_forms=input()
+        mp[id]=(subject_name,exam_forms)
+    mp_sorted=dict(sorted(mp.items(), key=lambda item:item[0]))
+    for id,(name,exam_forms) in mp_sorted.items():
+        print(id,name,exam_forms)
+
+if __name__=='__main__':
+    main()
