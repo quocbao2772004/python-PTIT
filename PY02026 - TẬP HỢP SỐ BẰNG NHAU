@@ -1,0 +1,33 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+mp={}
+def main():
+    n,m=map(int,input().split())
+    a=list(map(int,input().split()))
+    b=list(map(int,input().split()))
+    a=list(set(a))
+    b=list(set(b))
+    a.sort()
+    b.sort()
+    if len(a)!=len(b):
+        print("NO")
+    else:
+        ok=1
+        for i in range(0,len(a)):
+            if a[i]!=b[i]:
+                ok=0
+                break
+        if ok:
+            print("YES")
+        else:
+            print("NO")
+if __name__=='__main__':
+    main()
