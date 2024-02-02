@@ -1,0 +1,52 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('output.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+from queue import Queue
+from collections import deque
+from datetime import datetime
+# 3
+# ML01
+# May lanh SANYO
+# 12
+# 4000000
+# 2400000
+# ML02
+# May lanh HITACHI
+# 4
+# 2550000000
+# 0
+# ML03
+# May lanh NATIONAL
+# 5
+# 3000000
+# 150000
+
+# ML02 May lanh HITACHI 4 2550000000 0 10200000000
+# ML01 May lanh SANYO 12 4000000 2400000 45600000
+# ML03 May lanh NATIONAL 5 3000000 150000 14850000
+
+mp={}
+
+def main():
+    n=int(input())
+    stt = 1
+    for _ in range(n):
+        id=input()
+        name=input()
+        numbers=int(input())
+        price=int(input())
+        discount=int(input())
+        total_prices=numbers*price-discount
+        mp[id]=(id,name,numbers,price,discount,total_prices)
+    mp_sorted=dict(sorted(mp.items(),key=lambda item:item[1][5], reverse=True))
+    for id,(id,name,numbers,price,discount,total_price) in mp_sorted.items():
+        print(id,name,numbers,price,discount,total_price)
+    # print(mp)
+if __name__=='__main__':
+    main()
