@@ -1,0 +1,27 @@
+import sys
+fi=open("CONTACT.in","r")
+sys.stdin=fi
+# nguyenmanhson@gmail.com
+# sonnm@ptit.edu.vn
+# NGUYENMANHSON@gmail.com
+# SonNM@ptit.edu.vn
+# NguyenManhSon@GMAIL.com
+
+# nguyenmanhson@gmail.com
+# sonnm@ptit.edu.vn
+mp=[]
+def main():
+    while True:
+        try:
+            s=input()
+            s=s.lower()
+            if s not in mp:
+                mp.append(s)
+        except EOFError:
+            break
+    mp.sort()
+    for i in mp:
+        print(i)
+    fi.close()
+if __name__ == "__main__":
+    main()
