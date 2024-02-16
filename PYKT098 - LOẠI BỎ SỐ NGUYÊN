@@ -1,0 +1,30 @@
+import sys
+fi=open("DATA.in","r")
+sys.stdin=fi
+# 12 3 4 5 6 7
+# Aaa 1 1 Bbb XXX yyy 5 5
+# 999999999999999999999999
+# 9
+#
+# 999999999999999999999999 Aaa Bbb XXX yyy
+
+mp=[]
+def main():
+    ma=0
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                if i.isdigit():
+                    if len(i)>=9:
+                        mp.append(i)
+                else:
+                    mp.append(i)
+        except EOFError:
+            break
+    mp.sort()
+    for i in mp:
+        print(i,end=' ')
+
+if __name__ == "__main__":
+    main()
