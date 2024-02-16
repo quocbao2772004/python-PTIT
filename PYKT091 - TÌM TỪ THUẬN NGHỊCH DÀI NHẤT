@@ -1,0 +1,41 @@
+import sys
+fi=open("VANBAN.in","r")
+sys.stdin=fi
+# AAA BAABA HDHDH ACBSD SRGTDH DDDDS
+# DUAHD AAA AD DA HDHDH AAA AAA AAA AAA
+# DDDAS HDHDH HDH AAA AAA AAA AAA AAA
+# AAA AAA AAA
+# DHKFKH DHDHDD HDHDHD DDDHHH HHHDDD
+# TDTD
+#
+# HDHDH 3
+def check(s):
+    i,j=0,len(s)-1
+    while i<=j:
+        if s[i]!=s[j]:
+            return 0
+        i+=1
+        j-=1
+    return 1
+mp={}
+def main():
+    ma=0
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                if check(i):
+                    if i not in mp:
+                        mp[i]=(len(i),1)
+                    else:
+                        mp[i]=(len(i),mp[i][1]+1)
+                    ma=max(ma,len(i))
+        except EOFError:
+            break
+    # print(ma)
+    for i in mp:
+        # print(mp[i][0],mp[i][1])
+        if mp[i][0]==ma:
+            print(i,mp[i][1])
+if __name__ == "__main__":
+    main()
