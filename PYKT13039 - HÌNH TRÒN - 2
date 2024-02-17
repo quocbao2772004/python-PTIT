@@ -1,0 +1,37 @@
+import math
+from math import sqrt,log,pi
+import sys
+# fi=open("input.txt","r")
+# sys.stdin=fi
+# 0.7171
+
+# r=(P-c)/2
+# diện tích hình tròn có bán kính r
+    # Alớn=pi*r^2
+# với 1 hình tròn
+    # Akhông bao phủ=a*b-Alớn
+# với n hinhf tròn
+    # A bao phủ= pi*(r1^2 + r2^2+...)
+# tỉ lệ diện tích bao phủ:
+    # p=A bao phủ / (a*b)
+mp=[]
+def main():
+    ma=0
+    while True:
+        try:
+            a,b=map(int,input().split())
+            c=sqrt(a*a+b*b)
+            P=(a+b+c)/2
+            r=0.5*a*b/P
+            
+            x=sqrt(pow(b-r,2)+r**2)
+            k=(x-r)/(x+r)
+            A_bao_phu=2*pi*(r**2)/(1-k**2)
+            p=A_bao_phu/(a*b)
+            print(f'{p:.4f}')
+        except EOFError:
+            break
+
+
+if __name__ == "__main__":
+    main()
