@@ -1,0 +1,46 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+# fo=open('DIENTHOAI.txt','w')
+# sys.stdout=fo
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+
+def dfs(u,v,k,res,g,visited):
+    visited[u]=True
+    for i in g[u]:
+        if not visited[i] and i!=k:
+            res.append(i)
+            dfs(i,v,k,res,g,visited)
+
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,m,s,e=map(int,input().split())
+        g = []
+        for i in range(n+1):
+            g.append([])
+
+        for i in range (m):
+            u,v=map(int,input().split())
+            g[u].append(v)
+        c=0
+
+        for i in range(1,n+1):
+            res=[]
+            visited=[False]*(n+1)
+            visited[0]=1
+            if i!=s and i!=e:
+                # print(i)
+                res.append(s)
+                dfs(s,e,i,res,g,visited)
+                if not visited[s] or not visited[e]:
+                    c+=1
+                # print(res)
+        # print("c=",c)
+        print(c)
+
+if __name__=='__main__':
+    main()
