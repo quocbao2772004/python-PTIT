@@ -1,0 +1,48 @@
+import math
+from math import sqrt,log,pi
+import sys
+# fi=open("input.txt","r")
+# sys.stdin=fi
+# 2
+# 5 7 1 3
+# 1 2
+# 2 4
+# 2 5
+# 3 1
+# 3 2
+# 4 3
+# 5 4
+# 4 5 1 4
+# 1 2
+# 1 3
+# 2 3
+# 2 4
+# 3 4
+def dfs(s,e,i,g,visited):
+    visited[s]=1
+    for j in g[s]:
+        if not visited[j] and j!=i:
+            dfs(j,e,i,g,visited)
+def main():
+    test=int(input())
+    for _ in range(test):
+        n,m,s,e=map(int,input().split())
+        g = []
+        for _ in range(n+1):
+            g.append([])
+        for _ in range(m):
+            u,v=map(int,input().split())
+            g[u].append(v)
+        c=0
+        for i in range(1,n+1):
+            if i!=s and i!=e:
+                visited=[0]*(n+1)
+                dfs(s,e,i,g,visited)
+                if visited[e]==0:
+                    # print(i)
+                    c+=1
+        print(c)
+        # print()
+
+if __name__ == "__main__":
+    main()
