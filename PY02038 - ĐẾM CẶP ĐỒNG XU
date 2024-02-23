@@ -1,0 +1,27 @@
+import sys
+import functools
+# fi=open('input.txt','r')
+# sys.stdin=fi
+import math
+from math import sqrt,gcd,log2,log
+from decimal import Decimal, ROUND_HALF_UP
+row=[0]*105
+col=[0]*105
+# c(2,n)=n! / (2! *(n-2)!)
+def main():
+    n=int(input())
+    for i in range(n):
+        s=input()
+        for j in range(n):
+            if s[j]=='C':
+                col[j]+=1
+                row[i]+=1
+    res=0
+    for i in col:
+        res=res+(i*(i-1)//2)
+    for i in row:
+        res = res + (i * (i - 1) // 2)
+    print(res)
+
+if __name__=='__main__':
+    main()
