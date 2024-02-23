@@ -1,0 +1,28 @@
+import sys
+# fi=open("input.txt","r")
+# sys.stdin=fi
+
+def dfs(s,visited,adj):
+    visited[s]=1
+    for i in adj[s]:
+        if not visited[i]:
+            dfs(i,visited,adj)
+adj=[]
+
+def main():
+    n=int(input())
+    m=int(input())
+    visited=[0]*(n+5)
+    for i in range(n+1):
+        adj.append([])
+    for i in range(m):
+        u,v=map(int,input().split())
+        adj[u].append(v)
+        adj[v].append(u)
+    dfs(1,visited,adj)
+    if visited.count(1)==n:
+        print("NO")
+    else:
+        print("YES")
+if __name__=='__main__':
+    main()
