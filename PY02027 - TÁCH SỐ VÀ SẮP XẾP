@@ -1,0 +1,18 @@
+import sys
+import re
+# fi=open("input.txt","r")
+# sys.stdin=fi
+
+lst=[]
+def main():
+    n=int(input())
+    for _ in range(n):
+        s=input()
+        a=re.findall(r'[0-9]+',s)
+        for i in a:
+            lst.append(int(i))
+    lst.sort()
+    for i in lst:
+        print(i)
+if __name__=='__main__':
+    main()
