@@ -1,0 +1,48 @@
+import sys
+from math import *
+# fi=open("input.txt")
+# sys.stdin=fi
+# 3
+# 8 3
+# 6 9 7 10 12 24 36 27
+# 4 3
+# 2 4 6 8
+# 4 6
+# 1 2 3 6
+c=[]
+def main():
+    test=int(input())
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                c.append(int(i))
+        except EOFError:
+            break
+    j=0
+    # print(*c,end=' ')
+    # print()
+    for _ in range(test):
+        ok=0
+        n,k=c[j],c[j+1]
+        j+=2
+        a=[]
+        # print(n,k)
+        for i in range(j,j+n):
+            a.append(c[i])
+        j=j+n
+        # print(*a,end=' ')
+        # print()
+        ans=10**9
+        for i in range(0,n):
+            if a[i]%k==0:
+                for v in range(i,n):
+                    tmp=gcd(a[i],a[v])
+                    if tmp==k:
+                        ans=min(ans,v-i+1)
+                        break
+                    elif tmp<k:
+                        break
+        print(ans if ans!=10**9 else -1)
+if __name__=='__main__':
+    main()
