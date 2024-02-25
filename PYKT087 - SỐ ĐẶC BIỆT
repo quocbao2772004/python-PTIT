@@ -1,0 +1,24 @@
+import sys
+from math import *
+# fi=open("input.txt")
+# sys.stdin=fi
+# 3
+# 3 4
+# 2 12
+# 105 564
+c=[]
+def main():
+    mod=10**9+7
+    test=int(input())
+    for _ in range(test):
+        n,k=map(int,input().split())
+        k='{0:b}'.format(k)
+        ans=0
+        t=1
+        # print(k)
+        for i in range(len(k)-1,-1,-1):
+            ans=ans+t*int(k[i])
+            t=t*n
+        print(ans%mod)
+if __name__=='__main__':
+    main()
