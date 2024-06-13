@@ -1,0 +1,35 @@
+import sys
+# fi=open('input.txt','r')
+# fo=open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+
+dinh_muc=[100,500,200]
+mp={}
+def main():
+    stt=0
+    n=int(input())
+    for _ in range(n):
+        stt+=1
+        name=input().title().split()
+        type, index_1, index_2=map(str,input().split())
+        a=' '.join(name)
+        id="KH0"+str(stt) if stt<10 else "KH"+str(stt)
+        so_dien=int(index_2)-int(index_1)
+        dm=dinh_muc[ord(type)-65]
+        tong_so_dien, tien_vuot_dinh_muc=0, 0
+        if so_dien>=dm:
+            tong_so_dien=dm*450
+            tien_vuot_dinh_muc=(so_dien-dm)*1000
+        else:
+            tong_so_dien=so_dien*450
+        vat=int(tien_vuot_dinh_muc*0.05)
+        tong_so_tien_phai_nop=tong_so_dien+tien_vuot_dinh_muc+vat
+        mp[id]=(a, tong_so_dien, tien_vuot_dinh_muc, vat, tong_so_tien_phai_nop)
+    mp_sorted=dict(sorted(mp.items(),key=lambda item:item[1][4], reverse=True))
+    for id,(name, tong_so_dien, tien_vuot_dinh_muc, vat, tong_so_tien_phai_nop) in mp_sorted.items():
+        print(id, name, tong_so_dien,tien_vuot_dinh_muc, vat, tong_so_tien_phai_nop)
+
+if __name__=="__main__":
+    main()
+
