@@ -1,0 +1,47 @@
+import sys
+# fi=open('input.txt','r')
+# fo=open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+import csv,json
+
+mp={}
+mapping={}
+d1_3=[10,10,9,8]
+d4_8=[12,11,10,9]
+d9_15=[14,13,12,11]
+d_over16=[20,16,14,13]
+def mapping_year(type, yearworks):
+    if 1<=yearworks<=3:
+        return d1_3[ord(type)-65]
+    if 4<=yearworks<=8:
+        return d4_8[ord(type)-65]
+    if 9<=yearworks<=15:
+        return d9_15[ord(type)-65]
+    if yearworks>=16:
+        return d_over16[ord(type)-65]
+    return 0
+def main():
+    n=int(input())
+    for _ in range(n):
+        s=input().split()
+        room_id, room_name=s[0],s[1:]
+        mapping[room_id]=room_name
+        # print(room_id)
+        # print(room_name)
+    employees=int(input())
+    for _ in range(employees):
+        employee_id=input()
+        employee_name=input()
+        basic_salary=int(input())
+        dayworks=int(input())
+        yearworks=employee_id[1:3]
+        # print(yearworks)
+        type=employee_id[0]
+        total_salary=dayworks * basic_salary * mapping_year(type, int(yearworks)) * 1000
+        print(employee_id, employee_name, *mapping[employee_id[-2:]], total_salary)
+
+
+if __name__=="__main__":
+    main()
+
