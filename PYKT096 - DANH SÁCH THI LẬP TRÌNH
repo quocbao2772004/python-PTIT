@@ -1,0 +1,33 @@
+import sys
+# fi=open('input.txt','r')
+# fo=open('output.txt','w')
+# sys.stdin=fi
+# sys.stdout=fo
+import csv,json
+
+mapping={}
+map={}
+def main():
+    n=int(input())
+    stt=0
+    for _ in range(n):
+        team_name=input()
+        university_name=input()
+        stt+=1
+        id="Team0"+str(stt) if stt<10 else "Team"+str(stt)
+        mapping[id]=(team_name, university_name)
+    students=int(input())
+    stt=0
+    for _ in range(students):
+        name=input()
+        team=input()
+        stt+=1
+        msv="C"+"0"*(3-len(str(stt)))+str(stt)
+        map[msv]=(name,*mapping[team])
+    map_sorted=dict(sorted(map.items(), key=lambda item:item[1][0]))
+    for msv,(name, team_name, university_name) in map_sorted.items():
+        print(msv, name, team_name, university_name)
+
+if __name__=="__main__":
+    main()
+
