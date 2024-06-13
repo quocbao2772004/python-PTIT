@@ -1,0 +1,38 @@
+import sys
+
+
+import csv,json
+
+
+def main():
+    a=[]
+    fi = open('DATA1.in', 'r')
+    sys.stdin = fi
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                a.append(i.lower())
+        except EOFError:
+            break
+    fi.close()
+    b=[]
+    fo = open('DATA2.in', 'r')
+    sys.stdin = fo
+    while True:
+        try:
+            s=input().split()
+            for i in s:
+                b.append(i.lower())
+        except EOFError:
+            break
+    fo.close()
+    for i in sorted(list(set(a))):
+        if i not in b:
+            print(i,end=' ')
+    print()
+    for i in sorted(list(set(b))):
+        if i not in a:
+            print(i,end=' ')
+if __name__=="__main__":
+    main()
